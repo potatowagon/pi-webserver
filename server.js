@@ -9,11 +9,11 @@ const PORT = 8080;
 
 var sockets = {};
 
-// serve static files from the public directory
+////Static Routes
+app.use('/handler', express.static(__dirname + '/handler'));
 app.use(express.static('public'));
 
-//serve mainpage 
-//Main App Route
+//Main App Route, serve mainpage
 app.get('/', (req, res, next) => res.sendFile(__dirname + '/index.html'));
 
 // handle socket client connection

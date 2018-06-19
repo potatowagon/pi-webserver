@@ -10,7 +10,7 @@ const PORT = 8080;
 var sockets = {};
 
 ////Static Routes
-app.use(__dirname, express.static(__dirname));
+app.use(express.static(__dirname));
 //app.use(express.static('public'));
 
 //Main App Route, serve mainpage

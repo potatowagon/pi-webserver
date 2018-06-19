@@ -14,7 +14,7 @@ app.use(express.static('public'));
 
 //serve mainpage 
 //Main App Route
-app.get('/', (req, res, next) => res.sendFile('./index.html'));
+app.get('/', (req, res, next) => res.sendFile(__dirname + '/index.html'));
 
 // handle socket client connection
 io.on('connection', (socket) => {

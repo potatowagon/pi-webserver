@@ -11,6 +11,11 @@ var sockets = {};
 
 // serve static files from the public directory
 app.use(express.static('public'));
+
+//serve mainpage 
+//Main App Route
+app.get('/', (req, res, next) => res.sendFile('./index.html'));
+
 // handle socket client connection
 io.on('connection', (socket) => {
   console.log('Client connected');

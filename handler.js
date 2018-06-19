@@ -1,10 +1,21 @@
 // grab references to DOM elements
-var statusEl = document.getElementById('status');
-var dotEl = document.getElementById('dot');
+var turn = document.getElementById('turn');
+var candling = document.getElementById('candling');
+var lamp = document.getElementById('lamp');
+
+//status flags
+//check gpio later
+var turning = false;
+var torchOn = false;
+var lampOn = false; 
+
+//function calls from html
+function turn() {
+  console.log("turn");
+}
+
 // initialize WebSocket
 var socket = io();
-// define helper flags
-var isMoving = false;
 var isConnected = false;
 // bind to socket events
 socket.on('connect', function() {
@@ -16,7 +27,7 @@ socket.on('disconnect', function() {
   isConnected = false;
 });
 // set the initial dot position
-socket.on('reset', function (x, y) {
+/*socket.on('reset', function (x, y) {
   dotEl.style.left = x + '%';
   dotEl.style.top = y + '%';
 });
@@ -57,4 +68,4 @@ document.addEventListener('mousemove', function(event) {
 document.addEventListener('mouseup', function() {
   dotEl.classList.remove('move');
   isMoving = false;
-}, false);
+}, false); */

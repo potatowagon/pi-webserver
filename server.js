@@ -15,6 +15,7 @@ app.use('/handler', express.static(__dirname + '/handler'));
 
 //Main App Route, serve mainpage
 app.get('/', (req, res, next) => res.sendFile(__dirname + '/index.html'));
+app.get('/', (req, res, next) => res.sendFile(__dirname + '/handler.js'));
 
 // handle socket client connection
 io.on('connection', (socket) => {

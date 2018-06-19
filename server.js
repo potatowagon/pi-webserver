@@ -10,12 +10,11 @@ const PORT = 8080;
 var sockets = {};
 
 ////Static Routes
-app.use('/handler', express.static(__dirname + '/handler'));
+app.use('/handler', express.static(__dirname + '/handler.js'));
 //app.use(express.static('public'));
 
 //Main App Route, serve mainpage
 app.get('/', (req, res, next) => res.sendFile(__dirname + '/index.html'));
-app.get('/', (req, res, next) => res.sendFile(__dirname + '/handler.js'));
 
 // handle socket client connection
 io.on('connection', (socket) => {

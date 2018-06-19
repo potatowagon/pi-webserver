@@ -11,7 +11,7 @@ var sockets = {};
 
 ////Static Routes
 app.use('/handler', express.static(__dirname + '/handler'));
-app.use(express.static('public'));
+//app.use(express.static('public'));
 
 //Main App Route, serve mainpage
 app.get('/', (req, res, next) => res.sendFile(__dirname + '/index.html'));

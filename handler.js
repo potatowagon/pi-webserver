@@ -30,9 +30,13 @@ socket.on('disconnect', function() {
 
 socket.on('rotate', function (x) {
   dotEl.style.left = 100-x + '%';
-});
+});*/
 // handle mouse inputs
-dotEl.addEventListener('mousedown', function() {
+turn.addEventListener("mousedown", function() {
+  console.log("turn")
+}, false);
+
+/*dotEl.addEventListener('mousedown', function() {
   if (!isConnected) {
     return;
   }
@@ -66,11 +70,3 @@ document.addEventListener('mouseup', function() {
   isMoving = false;
 }, false); */
 
-//function calls from html
-function turn() {
-  console.log("turn");
-}
-
-module.exports = {
-  turn:turn
-}

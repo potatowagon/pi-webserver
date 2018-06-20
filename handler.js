@@ -12,6 +12,7 @@ var lampOn = false;
 // initialize WebSocket
 var socket = io();
 var isConnected = false;
+
 // bind to socket events
 socket.on('connect', function() {
   console.log("Connected");
@@ -68,4 +69,8 @@ document.addEventListener('mouseup', function() {
 //function calls from html
 function turn() {
   console.log("turn");
+}
+
+module.exports = {
+  turn:turn
 }

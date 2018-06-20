@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <title>Control Panel</title>
   <link rel="stylesheet" href="style.css">
-
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/handler.js"></script>
 </head>
 <body>
   <iframe src=http://192.168.1.94:8081 width="600" height="480"></iframe>
@@ -13,8 +14,5 @@
   <button id="turn" onclick="turn()">Turn</button>
   <button id="candling" onclick="toggleCandling()">Toggle Egg Candling</button>
   <button id="lamp" onclick="toggleLamp()">Toggle Lamp</button>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="/handler.js"></script>
-
 </body>
 </html>

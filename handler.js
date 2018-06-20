@@ -9,11 +9,6 @@ var turning = false;
 var torchOn = false;
 var lampOn = false; 
 
-//function calls from html
-function turn() {
-  console.log("turn");
-}
-
 // initialize WebSocket
 var socket = io();
 var isConnected = false;
@@ -69,3 +64,8 @@ document.addEventListener('mouseup', function() {
   dotEl.classList.remove('move');
   isMoving = false;
 }, false); */
+
+//function calls from html
+function turn() {
+  console.log("turn");
+}

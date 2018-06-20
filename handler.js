@@ -19,11 +19,11 @@ var socket = io();
 var isConnected = false;
 // bind to socket events
 socket.on('connect', function() {
-  statusEl.textContent = 'Connected';
+  console.log("Connected");
   isConnected = true;
 });
 socket.on('disconnect', function() {
-  statusEl.textContent = 'Disconnected';
+  console.log("Disconnect");
   isConnected = false;
 });
 // set the initial dot position

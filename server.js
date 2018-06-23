@@ -14,7 +14,7 @@ var motor = new Motor(); //gpio 4
 function autoTurn(motor) {
   console.log("auto starting motor");
   motor.startTurn();
-  setTimeout(function() {motor.stopTurn}, 2000,);
+  setTimeout(function() {motor.stopTurn()}, 2000,);
 }
 
 //turn every once in a while

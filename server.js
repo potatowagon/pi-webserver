@@ -4,10 +4,12 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 //const relay = require('./relay');
+const Motor = require('./motor');
 const HOST = '0.0.0.0';
 const PORT = 8080;
 
 var sockets = {};
+var motor = new Motor() //pin 4
 
 ////Static Routes
 app.use(express.static(__dirname));
@@ -24,15 +26,15 @@ io.on('connection', (socket) => {
     console.log('Client disconnected');
   });
   
-  /*socket.on('rotate', (x) => {
-    console.log(`Rotate to x:${x.toFixed(1)}`);
-    panTilt.rotate(x, 0);
-	socket.broadcast.emit('rotate', x);
+  socket.on('start-turn', () => {
+    console.log("server turning motor");
+    motor.startTurn();
   });
 
-  // send current pan/tilt head position to connected client
-  const {x, y} = panTilt.getPosition();
-  socket.emit('reset', x, y);*/
+  socket.on('stop-turn', () => {
+    console.log("server turning motor");
+    motor.stopTurn();
+  });
 });
 
 // start HTTP server

@@ -11,14 +11,14 @@ const PORT = 8080;
 var sockets = {};
 var motor = new Motor(); //gpio 4
 
-function autoTurn(motor) {
+function autoTurn() {
   console.log("auto starting motor");
   motor.startTurn();
   setTimeout(function() {motor.stopTurn()}, 2000,);
 }
 
 //turn every once in a while
-setInterval(autoTurn, 6000, motor);
+setInterval(autoTurn, 7200000,);
 
 ////Static Routes
 app.use(express.static(__dirname));

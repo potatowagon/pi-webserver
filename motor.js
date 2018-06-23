@@ -6,12 +6,12 @@ class Motor {
     }
     startTurn() {
         console.log("on");
-        console.log(this.motor)
+        console.log(this.motor.readSync())
         this.motor.writeSync(1);
     }
     stopTurn() {
         console.log("off");
-        console.log(this.motor)
+        console.log(this.motor.readSync())
         this.motor.writeSync(0);
     }
 }

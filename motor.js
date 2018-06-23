@@ -6,6 +6,7 @@ class Motor {
     }
     startTurn() {
         console.log("on");
+        console.log(this.motor)
         this.motor.writeSync(1);
     }
     stopTurn() {

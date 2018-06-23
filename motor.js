@@ -2,7 +2,7 @@ const Gpio = require('onoff').Gpio;
 
 class Motor { 
     constructor() {
-        this.motor = new Gpio(14, 'out');
+        this.motor = new Gpio(4, 'out');
     }
     startTurn() {
         console.log("on");

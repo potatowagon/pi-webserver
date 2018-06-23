@@ -8,11 +8,13 @@ class Motor {
         console.log("on");
         console.log(this.motor.readSync())
         this.motor.writeSync(1);
+        console.log(this.motor.readSync())
     }
     stopTurn() {
         console.log("off");
         console.log(this.motor.readSync())
         this.motor.writeSync(0);
+        console.log(this.motor.readSync())
     }
 }
 

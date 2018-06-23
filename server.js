@@ -9,7 +9,7 @@ const HOST = '0.0.0.0';
 const PORT = 8080;
 
 var sockets = {};
-var motor = new Motor() //pin 4
+var motor = new Motor() //gpio 4
 
 ////Static Routes
 app.use(express.static(__dirname));

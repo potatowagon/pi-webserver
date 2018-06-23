@@ -5,9 +5,11 @@ class Motor {
         this.motor = new Gpio(4, 'out');
     }
     startTurn() {
+        console.log("on");
         this.motor.writeSync(1);
     }
     stopTurn() {
+        console.log("off");
         this.motor.writeSync(0);
     }
 }

@@ -18,7 +18,7 @@ function autoTurn() {
 }
 
 //turn every once in a while
-setInterval(autoTurn, 7200000,);
+setInterval(autoTurn, 6000,);
 
 ////Static Routes
 app.use(express.static(__dirname));

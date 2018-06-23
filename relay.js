@@ -50,5 +50,5 @@ class PanTilt {
   }
 }
 
-module.exports = PanTilt;
+module.exports = toggleRelay;
 

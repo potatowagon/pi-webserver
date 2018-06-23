@@ -11,6 +11,7 @@ class Motor {
     }
     stopTurn() {
         console.log("off");
+        console.log(this.motor)
         this.motor.writeSync(0);
     }
 }

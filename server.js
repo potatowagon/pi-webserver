@@ -27,12 +27,12 @@ io.on('connection', (socket) => {
   });
   
   socket.on('start-turn', () => {
-    console.log("server turning motor");
+    console.log("server turning motor on");
     motor.startTurn();
   });
 
   socket.on('stop-turn', () => {
-    console.log("server turning motor");
+    console.log("server turning motor off");
     motor.stopTurn();
   });
 });

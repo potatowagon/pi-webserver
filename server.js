@@ -6,7 +6,7 @@ const io = require('socket.io')(http);
 //const relay = require('./relay');
 const Motor = require('./motor');
 const HOST = '0.0.0.0';
-const PORT = 8081;
+const PORT = 8080;
 
 var sockets = {};
 var motor = new Motor(); //gpio 4

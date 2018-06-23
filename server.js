@@ -9,7 +9,15 @@ const HOST = '0.0.0.0';
 const PORT = 8080;
 
 var sockets = {};
-var motor = new Motor() //gpio 4
+var motor = new Motor(); //gpio 4
+
+function autoTurn() {
+  motor.startTurn();
+  setTimeout(motor.stopTurn, 2000);
+}
+
+//turn every once in a while
+setInterval(autoTurn, 7200000);
 
 ////Static Routes
 app.use(express.static(__dirname));

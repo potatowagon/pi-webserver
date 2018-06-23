@@ -33,7 +33,13 @@ socket.on('rotate', function (x) {
 });*/
 // handle mouse inputs
 turn.addEventListener("mousedown", function() {
-  console.log("turn")
+  console.log("start turn");
+  socket.emit('start-turn');
+}, false);
+
+turn.addEventListener("mouseup", function() {
+  console.log("stop turn");
+  socket.emit('stop-turn');
 }, false);
 
 /*dotEl.addEventListener('mousedown', function() {

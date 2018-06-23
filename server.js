@@ -6,7 +6,7 @@ const io = require('socket.io')(http);
 //const relay = require('./relay');
 const Motor = require('./motor');
 const HOST = '0.0.0.0';
-const PORT = 8080;
+const PORT = 8081;
 
 var sockets = {};
 var motor = new Motor(); //gpio 4
@@ -17,7 +17,7 @@ function autoTurn() {
   setTimeout(function() {motor.stopTurn()}, 2000,);
 }
 
-//turn every once in a while
+//turn every once in a while (2hrs)
 setInterval(autoTurn, 7200000);
 
 ////Static Routes

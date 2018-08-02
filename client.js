@@ -56,10 +56,9 @@ socket.on('disconnect', function() {
 
 // handle mouse inputs
 turn.addEventListener("mousedown", function(e) {
-  e.preventDefault()
   console.log("start turn");
   socket.emit('start-turn');
-  turnIcon.rotate();
+  turnIcon.startRotate();
 }, false);
 
 turn.addEventListener("mouseup", function() {

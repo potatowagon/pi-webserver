@@ -53,8 +53,8 @@ socket.on('disconnect', function() {
   isConnected = false;
 });
 
-socket.on('start-turn-animation', turnIcon.startRotate());
-socket.on('stop-turn-animation', turnIcon.stopRotate());
+socket.on('start-turn-animation', turnIcon.startRotate);
+socket.on('stop-turn-animation', turnIcon.stopRotate);
 socket.on('candling-on-state', function(){
   candling.innerHTML = '<i class="far fa-lightbulb fa-7x"></i>';
 });

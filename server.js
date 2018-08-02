@@ -42,10 +42,10 @@ io.on('connection', (socket) => {
   }
 
   if(torch.on){
-    //socket.emit('candling-on-state');
+    socket.emit('candling-on-state');
   }
   else {
-    //socket.emit('candling-off-state');
+    socket.emit('candling-off-state');
   }
 
   socket.on('disconnect', () => {

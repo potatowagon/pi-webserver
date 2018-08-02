@@ -35,17 +35,17 @@ io.on('connection', (socket) => {
 
   //once connected, play animation of state
   if(motor.turning) {
-    socket.emit("start-turn-animation");
+    //socket.emit("start-turn-animation");
   }
   else {
-    socket.emit("stop-turn-animation")
+    //socket.emit("stop-turn-animation")
   }
 
   if(torch.on){
-    socket.emit('candling-on-state');
+    //socket.emit('candling-on-state');
   }
   else {
-    socket.emit('candling-off-state');
+    //socket.emit('candling-off-state');
   }
 
   socket.on('disconnect', () => {

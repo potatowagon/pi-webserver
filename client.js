@@ -21,8 +21,7 @@ class Rotatable {
     document.getElementById(this.id).style.transform = "rotate(" + this.deg + "deg)";
   }
 
-  reset() {
-    this.deg = 0;
+  stopRotate() {
     clearInterval(this.active)
   }
 }
@@ -64,7 +63,7 @@ turn.addEventListener("mousedown", function(e) {
 turn.addEventListener("mouseup", function() {
   console.log("stop turn");
   socket.emit('stop-turn');
-  turnIcon.reset();
+  turnIcon.stopRotate();
 }, false);
 
 

@@ -6,7 +6,7 @@ class Rotatable {
   }
 
   startRotate() {
-    _this = this;
+    var _this = this;
     this.active = setInterval(_this.rotate() ,100);
     console.log(this.active);
   }

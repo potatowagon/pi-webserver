@@ -47,19 +47,18 @@ var isConnected = false;
 socket.on('connect', function() {
   console.log("Connected");
   isConnected = true;
+  socket.on('start-turn-animation', turnIcon.startRotate());
+  socket.on('stop-turn-animation', turnIcon.stopRotate());
+  socket.on('candling-on-state', function(){
+    candling.innerHTML = '<i class="far fa-lightbulb fa-7x"></i>';
+  });
+  socket.on('candling-off-state', function(){
+    candling.innerHTML = '<i class="fas fa-lightbulb fa-7x"></i>';
+  });
 });
 socket.on('disconnect', function() {
   console.log("Disconnect");
   isConnected = false;
-});
-
-socket.on('start-turn-animation', turnIcon.startRotate());
-socket.on('stop-turn-animation', turnIcon.stopRotate());
-socket.on('candling-on-state', function(){
-  candling.innerHTML = '<i class="far fa-lightbulb fa-7x"></i>';
-});
-socket.on('candling-off-state', function(){
-  candling.innerHTML = '<i class="fas fa-lightbulb fa-7x"></i>';
 });
 
 //// FOR TURN BUTTON

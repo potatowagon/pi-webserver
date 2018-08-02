@@ -76,4 +76,25 @@ turn.addEventListener("touchstart", startTurn, false);
 turn.addEventListener("touchend", stopTurn, false);
 
 ////FOR EGG CANDLING BUTTON
+//handle inputs
+var startCandling = function() {
+  console.log("start turn");
+  socket.emit('start-turn');
+  candling.innerHTML = '<i class="far fa-lightbulb fa-7x"></i>';
+};
+
+var stopCandling = function() {
+  console.log("stop turn");
+  socket.emit('stop-turn');
+  candling.innerHTML = '<i class="fas fa-lightbulb fa-7x"></i>';
+};
+
+// handle mouse inputs
+turn.addEventListener("mousedown", startCandling, false);
+turn.addEventListener("mouseup", stopCandling, false);
+
+//for mobile
+turn.addEventListener("touchstart", startCandling, false);
+turn.addEventListener("touchend", stopCandling, false);
+
 

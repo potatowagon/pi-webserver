@@ -13,6 +13,7 @@ class Rotatable {
     document.getElementById(this.id).style.msTransform = "rotate(" + this.deg + ")"; 
     // Standard syntax
     document.getElementById(this.id).style.transform = "rotate(" + this.deg + ")";
+    console.log(this.deg)
   }
 
   reset() {

@@ -3,20 +3,25 @@ class Rotatable {
   constructor(id) {
     this.id = id;
     this.deg = 0;
+    this.mouseDown = false;
   }
   
   rotate() {
-    this.deg = this.deg + 1;
-    // Code for Safari
-    document.getElementById(this.id).style.WebkitTransform = "rotate(" + this.deg + ")"; 
-    // Code for IE9
-    document.getElementById(this.id).style.msTransform = "rotate(" + this.deg + ")"; 
-    // Standard syntax
-    document.getElementById(this.id).style.transform = "rotate(" + this.deg + ")";
-    console.log(this.deg)
+    this.mouseDown = true;
+    while(this.mouseDown) {
+      this.deg = this.deg + 1;
+      // Code for Safari
+      document.getElementById(this.id).style.WebkitTransform = "rotate(" + this.deg + ")"; 
+      // Code for IE9
+      document.getElementById(this.id).style.msTransform = "rotate(" + this.deg + ")"; 
+      // Standard syntax
+      document.getElementById(this.id).style.transform = "rotate(" + this.deg + ")";
+      console.log(this.deg)
+    }
   }
 
   reset() {
+    this.mouseDown = false;
     this.deg = 0;
   }
 }

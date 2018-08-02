@@ -89,7 +89,7 @@ var toggleCandling = function() {
 };
 
 // handle mouse inputs
-candling.addEventListener("mousedown", startCandling, false);
+candling.addEventListener("click", toggleCandling, false);
 
 
 

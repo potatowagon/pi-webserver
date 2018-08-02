@@ -7,6 +7,7 @@ class Rotatable {
 
   startRotate() {
     this.active = setInterval(this.rotate() ,100);
+    console.log(this.active);
   }
   
   rotate() {
@@ -23,6 +24,7 @@ class Rotatable {
 
   reset() {
     this.deg = 0;
+    console.log(this.active);
     clearInterval(this.active)
   }
 }

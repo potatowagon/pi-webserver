@@ -53,31 +53,27 @@ socket.on('disconnect', function() {
   isConnected = false;
 });
 
+//// FOR TURN BUTTON
+//handle inputs
+var startTurn = function() {
+  console.log("start turn");
+  socket.emit('start-turn');
+  turnIcon.startRotate();
+};
+
+var stopTurn = function() {
+  console.log("stop turn");
+  socket.emit('stop-turn');
+  turnIcon.stopRotate();
+};
+
 // handle mouse inputs
-turn.addEventListener("mousedown", function(e) {
-  console.log("start turn");
-  socket.emit('start-turn');
-  turnIcon.startRotate();
-}, false);
+turn.addEventListener("mousedown", startTurn, false);
+turn.addEventListener("mouseup", stopTurn, false);
 
 //for mobile
-turn.addEventListener("touchstart", function(e) {
-  console.log("start turn");
-  socket.emit('start-turn');
-  turnIcon.startRotate();
-}, false);
+turn.addEventListener("touchstart", startTurn, false);
+turn.addEventListener("touchend", stopTurn, false);
 
-turn.addEventListener("mouseup", function() {
-  console.log("stop turn");
-  socket.emit('stop-turn');
-  turnIcon.stopRotate();
-}, false);
-
-//for mobile
-turn.addEventListener("touchend", function() {
-  console.log("stop turn");
-  socket.emit('stop-turn');
-  turnIcon.stopRotate();
-}, false);
-
+////FOR EGG CANDLING BUTTON
 

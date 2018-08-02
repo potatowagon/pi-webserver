@@ -25,7 +25,7 @@ var turn = document.getElementById('turn');
 var candling = document.getElementById('candling');
 var lamp = document.getElementById('lamp');
 
-var turnIcon = new Rotatable("turn");
+var turnIcon = new Rotatable("turn-icon");
 
 //status flags
 //check gpio later

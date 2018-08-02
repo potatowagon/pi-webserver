@@ -9,7 +9,7 @@ const HOST = '0.0.0.0';
 const PORT = 3000;
 
 var sockets = {};
-var motor = new Motor(); //gpio 4
+var motor = new Motor();
 
 function autoTurn() {
   console.log("auto starting motor");
@@ -30,6 +30,14 @@ app.get('/', (req, res, next) => res.sendFile(__dirname + '/index.html'));
 // handle socket client connection
 io.on('connection', (socket) => {
   console.log('Client connected');
+
+  //once connected, play animation of state
+  if(motor.turning) {
+    socket.emit("start-turn-animation");
+  }
+  else {
+    socket.emit("stop-turn-animation")
+  }
 
   socket.on('disconnect', () => {
     console.log('Client disconnected');

@@ -53,18 +53,19 @@ socket.on('disconnect', function() {
   isConnected = false;
 });
 
+socket.on('start-turn-animation', turnIcon.startRotate());
+socket.on('stop-turn-animation', turnIcon.stopRotate());
+
 //// FOR TURN BUTTON
 //handle inputs
 var startTurn = function() {
   console.log("start turn");
   socket.emit('start-turn');
-  turnIcon.startRotate();
 };
 
 var stopTurn = function() {
   console.log("stop turn");
   socket.emit('stop-turn');
-  turnIcon.stopRotate();
 };
 
 // handle mouse inputs

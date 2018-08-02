@@ -6,7 +6,7 @@ class Rotatable {
   }
   
   rotate() {
-    this.deg ++;
+    this.deg = this.deg + 1;
     // Code for Safari
     document.getElementById(this.id).style.WebkitTransform = "rotate(" + this.deg + ")"; 
     // Code for IE9
@@ -58,7 +58,7 @@ turn.addEventListener("mousedown", function() {
 turn.addEventListener("mouseup", function() {
   console.log("stop turn");
   socket.emit('stop-turn');
-  turnIcon.reset();
+  //turnIcon.reset();
 }, false);
 
 

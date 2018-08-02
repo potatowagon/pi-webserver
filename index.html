@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <title>Control Panel</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/cssall.css">
 </head>
 <body>
   <iframe src=http://10.148.68.95:8081 width="640" height="480"></iframe>
   <br>
   <h3>Control Panel</h3>
-  <button id="turn">Turn</button>
+  <div id="turn">
+    <i class="fas fa-sync-alt"></i>
+  </div>
   <button id="candling">Toggle Egg Candling</button>
   <button id="lamp">Toggle Lamp</button>
   <script src="/socket.io/socket.io.js"></script>

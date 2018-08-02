@@ -1,7 +1,31 @@
+//to rotate icons in webpage
+class Rotatable {
+  constructor(id) {
+    this.id = id;
+    this.deg = 0;
+  }
+  
+  rotate() {
+    this.deg ++;
+    // Code for Safari
+    document.getElementById(this.id).style.WebkitTransform = "rotate(" + this.deg + ")"; 
+    // Code for IE9
+    document.getElementById(this.id).style.msTransform = "rotate(" + this.deg + ")"; 
+    // Standard syntax
+    document.getElementById(this.id).style.transform = "rotate(" + this.deg + ")";
+  }
+
+  reset() {
+    this.deg = 0;
+  }
+}
+
 // grab references to DOM elements
 var turn = document.getElementById('turn');
 var candling = document.getElementById('candling');
 var lamp = document.getElementById('lamp');
+
+var turnIcon = new Rotatable("turn");
 
 //status flags
 //check gpio later
@@ -27,11 +51,13 @@ socket.on('disconnect', function() {
 turn.addEventListener("mousedown", function() {
   console.log("start turn");
   socket.emit('start-turn');
+  turnIcon.rotate();
 }, false);
 
 turn.addEventListener("mouseup", function() {
   console.log("stop turn");
   socket.emit('stop-turn');
+  turnIcon.reset();
 }, false);
 
 

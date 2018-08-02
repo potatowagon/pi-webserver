@@ -8,20 +8,18 @@ class Rotatable {
   
   rotate() {
     this.mouseDown = true;
-    while(this.mouseDown) {
-      this.deg = this.deg + 1;
-      // Code for Safari
-      document.getElementById(this.id).style.WebkitTransform = "rotate(" + this.deg + ")"; 
-      // Code for IE9
-      document.getElementById(this.id).style.msTransform = "rotate(" + this.deg + ")"; 
-      // Standard syntax
-      document.getElementById(this.id).style.transform = "rotate(" + this.deg + ")";
-      console.log(this.deg)
-    }
+    this.deg = this.deg + 1;
+    this.deg = this.deg % 360;
+    // Code for Safari
+    document.getElementById(this.id).style.WebkitTransform = "rotate(" + this.deg + "deg)"; 
+    // Code for IE9
+    document.getElementById(this.id).style.msTransform = "rotate(" + this.deg + "deg)"; 
+    // Standard syntax
+    document.getElementById(this.id).style.transform = "rotate(" + this.deg + "deg)";
+    console.log(this.deg)
   }
 
   reset() {
-    this.mouseDown = false;
     this.deg = 0;
   }
 }
@@ -54,7 +52,8 @@ socket.on('disconnect', function() {
 });
 
 // handle mouse inputs
-turn.addEventListener("mousedown", function() {
+turn.addEventListener("mousedown", function(e) {
+  e.preventDefault()
   console.log("start turn");
   socket.emit('start-turn');
   turnIcon.rotate();

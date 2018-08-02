@@ -90,11 +90,11 @@ var stopCandling = function() {
 };
 
 // handle mouse inputs
-turn.addEventListener("mousedown", startCandling, false);
-turn.addEventListener("mouseup", stopCandling, false);
+candling.addEventListener("mousedown", startCandling, false);
+candling.addEventListener("mouseup", stopCandling, false);
 
 //for mobile
-turn.addEventListener("touchstart", startCandling, false);
-turn.addEventListener("touchend", stopCandling, false);
+candling.addEventListener("touchstart", startCandling, false);
+candling.addEventListener("touchend", stopCandling, false);
 
 

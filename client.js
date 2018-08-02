@@ -60,6 +60,7 @@ turn.addEventListener("mousedown", function(e) {
   turnIcon.startRotate();
 }, false);
 
+//for mobile
 turn.addEventListener("touchstart", function(e) {
   console.log("start turn");
   socket.emit('start-turn');
@@ -72,6 +73,7 @@ turn.addEventListener("mouseup", function() {
   turnIcon.stopRotate();
 }, false);
 
+//for mobile
 turn.addEventListener("touchend", function() {
   console.log("stop turn");
   socket.emit('stop-turn');

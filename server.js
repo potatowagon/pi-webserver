@@ -5,11 +5,13 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 //const relay = require('./relay');
 const Motor = require('./motor');
+const Torch = require('./torch');
 const HOST = '0.0.0.0';
 const PORT = 3000;
 
 var sockets = {};
 var motor = new Motor();
+var torch = new Torch();
 
 function autoTurn() {
   console.log("auto starting motor");
@@ -39,6 +41,13 @@ io.on('connection', (socket) => {
     socket.emit("stop-turn-animation")
   }
 
+  if(torch.on){
+    socket.emit('candling-on-state');
+  }
+  else {
+    socket.emit('candling-off-state');
+  }
+
   socket.on('disconnect', () => {
     console.log('Client disconnected');
   });
@@ -46,11 +55,24 @@ io.on('connection', (socket) => {
   socket.on('start-turn', () => {
     console.log("server turning motor on");
     motor.startTurn();
+    io.emit('start-turn-animation')
   });
 
   socket.on('stop-turn', () => {
     console.log("server turning motor off");
     motor.stopTurn();
+    io.emit('stop-turn-animation');
+  });
+
+  socket.on('toggle-candling', () => {
+    if(torch.on){
+      torch.switchOff();
+      io.emit('candling-off-state');
+    }
+    else {
+      torch.switchOn();
+      io.emit('candling-on-state');
+    }
   });
 });
 

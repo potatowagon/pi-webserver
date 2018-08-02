@@ -55,6 +55,12 @@ socket.on('disconnect', function() {
 
 socket.on('start-turn-animation', turnIcon.startRotate());
 socket.on('stop-turn-animation', turnIcon.stopRotate());
+socket.on('candling-on-state', function(){
+  candling.innerHTML = '<i class="far fa-lightbulb fa-7x"></i>';
+});
+socket.on('candling-off-state', function(){
+  candling.innerHTML = '<i class="fas fa-lightbulb fa-7x"></i>';
+});
 
 //// FOR TURN BUTTON
 //handle inputs
@@ -80,13 +86,7 @@ turn.addEventListener("touchend", stopTurn, false);
 //handle inputs
 var candlingOn = false;
 var toggleCandling = function() {
-  candlingOn = !candlingOn;
-  if(candlingOn) {
-    candling.innerHTML = '<i class="far fa-lightbulb fa-7x"></i>';
-  } 
-  else {
-    candling.innerHTML = '<i class="fas fa-lightbulb fa-7x"></i>';
-  }
+  socket.emit('toggle-candling');
 };
 
 // handle mouse inputs

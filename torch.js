@@ -1,21 +1,20 @@
 const Gpio = require('onoff').Gpio;
 
-class Motor { 
+class Torch { 
     constructor() {
-        this.motor = new Gpio(21, 'out');
+        this.torch = new Gpio(20, 'out');
+        this.on = false;
     }
-    startTurn() {
-        console.log("on");
-        console.log(this.motor.readSync())
-        this.motor.writeSync(1);
-        console.log(this.motor.readSync())
+    switchOn() {
+        console.log("torch on");
+        this.torch.writeSync(1);
+        this.on = true;
     }
-    stopTurn() {
-        console.log("off");
-        console.log(this.motor.readSync())
-        this.motor.writeSync(0);
-        console.log(this.motor.readSync())
+    switchOff() {
+        console.log("torch off");
+        this.torch.writeSync(0);
+        this.on = false;
     }
 }
 
-module.exports = Motor;
+module.exports = Torch;

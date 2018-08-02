@@ -4,19 +4,21 @@ class Rotatable {
     this.id = id;
     this.deg = 0;
   }
+
+  startRotate() {
+    this.active = setInterval(this.rotate() ,100);
+  }
   
   rotate() {
-    this.active = setInterval(function() {
-      this.deg = this.deg + 1;
-      this.deg = this.deg % 360;
-      // Code for Safari
-      document.getElementById(this.id).style.WebkitTransform = "rotate(" + this.deg + "deg)"; 
-      // Code for IE9
-      document.getElementById(this.id).style.msTransform = "rotate(" + this.deg + "deg)"; 
-      // Standard syntax
-      document.getElementById(this.id).style.transform = "rotate(" + this.deg + "deg)";
-      console.log(this.deg)
-    }, 100);
+    this.deg = this.deg + 1;
+    this.deg = this.deg % 360;
+    // Code for Safari
+    document.getElementById(this.id).style.WebkitTransform = "rotate(" + this.deg + "deg)"; 
+    // Code for IE9
+    document.getElementById(this.id).style.msTransform = "rotate(" + this.deg + "deg)"; 
+    // Standard syntax
+    document.getElementById(this.id).style.transform = "rotate(" + this.deg + "deg)";
+    console.log(this.deg);
   }
 
   reset() {

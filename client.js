@@ -7,8 +7,7 @@ class Rotatable {
 
   startRotate() {
     var _this = this;
-    this.active = setInterval(function(){_this.rotate()} ,100);
-    console.log(this.active);
+    this.active = setInterval(function(){_this.rotate()} ,10);
   }
   
   rotate() {
@@ -20,12 +19,10 @@ class Rotatable {
     document.getElementById(this.id).style.msTransform = "rotate(" + this.deg + "deg)"; 
     // Standard syntax
     document.getElementById(this.id).style.transform = "rotate(" + this.deg + "deg)";
-    console.log(this.deg);
   }
 
   reset() {
     this.deg = 0;
-    console.log(this.active);
     clearInterval(this.active)
   }
 }

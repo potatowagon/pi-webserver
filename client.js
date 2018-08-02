@@ -53,14 +53,14 @@ socket.on('disconnect', function() {
   isConnected = false;
 });
 
-/*socket.on('start-turn-animation', turnIcon.startRotate());
+socket.on('start-turn-animation', turnIcon.startRotate());
 socket.on('stop-turn-animation', turnIcon.stopRotate());
 socket.on('candling-on-state', function(){
   candling.innerHTML = '<i class="far fa-lightbulb fa-7x"></i>';
 });
 socket.on('candling-off-state', function(){
   candling.innerHTML = '<i class="fas fa-lightbulb fa-7x"></i>';
-});*/
+});
 
 //// FOR TURN BUTTON
 //handle inputs

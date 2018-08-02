@@ -63,7 +63,7 @@ turn.addEventListener("mousedown", function() {
 turn.addEventListener("mouseup", function() {
   console.log("stop turn");
   socket.emit('stop-turn');
-  //turnIcon.reset();
+  turnIcon.reset();
 }, false);
 
 

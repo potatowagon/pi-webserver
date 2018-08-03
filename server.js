@@ -41,6 +41,8 @@ io.on('connection', (socket) => {
           console.log('temp: ' + temperature.toFixed(1) + '°C, ' +
               'humidity: ' + humidity.toFixed(1) + '%'
           );
+          io.emit('temp-val', temperature.toFixed(1));
+          io.emit('humidity-val', humidity.toFixed(1));
       }
     });  
   },1000);

@@ -62,6 +62,11 @@ socket.on('candling-off-state', function(){
   candling.innerHTML = '<i class="fas fa-lightbulb fa-7x"></i>';
 });
 
+//display temp and humidity readings
+socket.on('temp-val', function(e){
+  console.log(e);
+});
+
 //// FOR TURN BUTTON
 //handle inputs
 var startTurn = function() {

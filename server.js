@@ -35,14 +35,16 @@ app.get('/', (req, res, next) => res.sendFile(__dirname + '/index.html'));
 io.on('connection', (socket) => {
   console.log('Client connected');
 
-  sensor.read(22, 4, function(err, temperature, humidity) {
-    if (!err) {
-        console.log('temp: ' + temperature.toFixed(1) + '°C, ' +
-            'humidity: ' + humidity.toFixed(1) + '%'
-        );
-    }
-  });
-
+  setInterval(function(){
+    sensor.read(11, 4, function(err, temperature, humidity) {
+      if (!err) {
+          console.log('temp: ' + temperature.toFixed(1) + '°C, ' +
+              'humidity: ' + humidity.toFixed(1) + '%'
+          );
+      }
+    });  
+  },1000);
+    
   //once connected, play animation of state
   if(motor.turning) {
     socket.emit("start-turn-animation");

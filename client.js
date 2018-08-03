@@ -67,7 +67,7 @@ var tempReading = document.getElementById("temp");
 var humidityReading = document.getElementById("humidity");
 socket.on('temp-humidity-in', function(temp, humidity){
   tempReading.innerHTML = temp;
-  humidityReading = humidity;
+  humidityReading,innerHTML = humidity;
 });
 
 //// FOR TURN BUTTON

@@ -63,8 +63,11 @@ socket.on('candling-off-state', function(){
 });
 
 //display temp and humidity readings
-socket.on('temp-val', function(e){
-  console.log(e);
+var tempReading = document.getElementById("temp");
+var humidityReading = document.getElementById("humidity");
+socket.on('temp-humidity-in', function(temp, humidity){
+  tempReading.innerHTML = temp;
+  humidityReading = humidity;
 });
 
 //// FOR TURN BUTTON

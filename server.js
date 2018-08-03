@@ -12,6 +12,8 @@ const PORT = 3000;
 var sockets = {};
 var motor = new Motor();
 var torch = new Torch();
+var sensor = require('node-dht-sensor');
+
 
 function autoTurn() {
   console.log("auto starting motor");
@@ -32,6 +34,14 @@ app.get('/', (req, res, next) => res.sendFile(__dirname + '/index.html'));
 // handle socket client connection
 io.on('connection', (socket) => {
   console.log('Client connected');
+
+  sensor.read(22, 4, function(err, temperature, humidity) {
+    if (!err) {
+        console.log('temp: ' + temperature.toFixed(1) + '°C, ' +
+            'humidity: ' + humidity.toFixed(1) + '%'
+        );
+    }
+  });
 
   //once connected, play animation of state
   if(motor.turning) {

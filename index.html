@@ -9,6 +9,8 @@
 <body>
   <iframe src=http://0.0.0.0:8081 width="640" height="480"></iframe>
   <br>
+  <div id="temp"></div>
+  <div id="humidity"></div>
   <h3>Control Panel</h3>
   <button id="turn">
     <i id="turn-icon" class="fas fa-sync-alt fa-7x"></i>
@@ -16,6 +18,8 @@
   <button id="candling">
       <i class="fas fa-lightbulb fa-7x"></i>
   </button>
+  <input type="range" id="max-temp" name="Max Temperature"
+           min="36" max="40" step="1" />
   <!--<button id="lamp">Toggle Lamp</button>-->
   <script src="/socket.io/socket.io.js"></script>
   <script src="/client.js"></script>

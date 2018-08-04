@@ -13,16 +13,37 @@ var sockets = {};
 var motor = new Motor();
 var torch = new Torch();
 var sensor = require('node-dht-sensor');
+var temp = 0;
+
+//settings
+var maxTemp = 38; //initial
+// in ms
+const AUTO_TURN_INTERVAL = 7200000;
+const AUTO_TURN_DURATION = 2000;
+const MAX_TEMP_CHECK_INTERVAL = 5000;
+const TEMP_HUMIDITY_POLLING_INTERVAL = 5000;
 
 
 function autoTurn() {
   console.log("auto starting motor");
   motor.startTurn();
-  setTimeout(function() {motor.stopTurn()}, 2000,);
+  setTimeout(function() {motor.stopTurn()}, AUTO_TURN_DURATION);
 }
 
 //turn every once in a while (2hrs)
-setInterval(autoTurn, 7200000);
+setInterval(autoTurn, AUTO_TURN_INTERVAL);
+
+//check if temp above max temp, and turn off heater (turn on candling) if too hot
+setInterval(function(){
+  if(temp > maxTemp) {
+    torch.switchOn();
+    io.emit('candling-on-state');
+  }
+  else {
+    torch.switchOff();
+    io.emit('candling-off-state');
+  }
+}, MAX_TEMP_CHECK_INTERVAL);
 
 ////Static Routes
 app.use(express.static(__dirname));
@@ -38,13 +59,14 @@ io.on('connection', (socket) => {
   setInterval(function(){
     sensor.read(11, 4, function(err, temperature, humidity) {
       if (!err) {
-          console.log('temp: ' + temperature.toFixed(1) + '°C, ' +
-              'humidity: ' + humidity.toFixed(1) + '%'
-          );
-          io.emit('temp-humidity-in', temperature.toFixed(1), humidity.toFixed(1));
+        temp = temperature;
+        io.emit('temp-humidity-in', temperature.toFixed(1), humidity.toFixed(1));
       }
     });  
-  },1000);
+  }, TEMP_HUMIDITY_POLLING_INTERVAL);
+
+  //once connected, display current max temp
+  socket.emit("max-temp", maxTemp);
     
   //once connected, play animation of state
   if(motor.turning) {

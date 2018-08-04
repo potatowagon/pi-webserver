@@ -100,5 +100,6 @@ var toggleCandling = function() {
 // handle mouse inputs
 candling.addEventListener("click", toggleCandling, false);
 
+////MAX TEMP CONTROLL
 
 

@@ -107,6 +107,6 @@ var updateMaxTemp = function(newMaxTemp) {
   socket.emit('update-max-temp', newMaxTemp);
 };
 
-maxTempEle.addEventListener("change", updateMaxTemp(maxTempEle.value), false);
+maxTempEle.value.addEventListener("change", updateMaxTemp(maxTempEle.value), false);
 
 

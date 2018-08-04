@@ -60,7 +60,7 @@ io.on('connection', (socket) => {
     sensor.read(11, 4, function(err, temperature, humidity) {
       if (!err) {
         temp = temperature;
-        io.emit('temp-humidity-in', temperature.toFixed(1), humidity.toFixed(1));
+        io.emit('temp-humidity-in', temperature.toFixed(0), humidity.toFixed(0));
       }
     });  
   }, TEMP_HUMIDITY_POLLING_INTERVAL);

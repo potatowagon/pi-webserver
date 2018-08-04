@@ -16,7 +16,7 @@ var sensor = require('node-dht-sensor');
 var temp = 0;
 
 //settings
-var maxTemp = 38; //initial
+var maxTemp = 39; //initial
 // in ms
 const AUTO_TURN_INTERVAL = 7200000;
 const AUTO_TURN_DURATION = 2000;

@@ -83,6 +83,9 @@ io.on('connection', (socket) => {
     socket.emit('candling-off-state');
   }
 
+  //once connected, display cuurent max temp
+  socket.emit('update-max-temp-dislplay', maxTemp); 
+
   socket.on('disconnect', () => {
     console.log('Client disconnected');
   });
@@ -112,7 +115,7 @@ io.on('connection', (socket) => {
 
   socket.on('update-max-temp', (newMaxTemp)=> {
     maxTemp = newMaxTemp;
-    io.emit('update-max-temp-display', newMaxTemp);
+    io.emit('update-max-temp-display', maxTemp);
   });
 });
 

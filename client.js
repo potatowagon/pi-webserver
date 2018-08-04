@@ -101,12 +101,12 @@ var toggleCandling = function() {
 candling.addEventListener("click", toggleCandling, false);
 
 ////MAX TEMP CONTROLL
-var maxTempEle = document.getElementById("max-temp");
-var updateMaxTemp = function(newMaxTemp) {
+//var maxTempEle = document.getElementById("max-temp");
+function updateMaxTemp(newMaxTemp) {
   console.log(newMaxTemp);
   socket.emit('update-max-temp', newMaxTemp);
-};
+}
 
-maxTempEle.value.addEventListener("change", updateMaxTemp(maxTempEle.value), false);
+//maxTempEle.value.addEventListener("change", updateMaxTemp(maxTempEle.value), false);
 
 

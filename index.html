@@ -23,7 +23,7 @@
   <br></br>
   <label for="Max Temperature">Max Temperature</label>
   <input type="range" id="max-temp" name="Max Temperature"
-           min="36" max="40" step="1" />
+           min="36" max="40" step="1" onchange="updateMaxTemp(this.value)"/>
   <div id="max-temp-val"></div>
   <!--<button id="lamp">Toggle Lamp</button>-->
   <script src="/socket.io/socket.io.js"></script>

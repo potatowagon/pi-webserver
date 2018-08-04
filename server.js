@@ -109,6 +109,11 @@ io.on('connection', (socket) => {
       io.emit('candling-on-state');
     }
   });
+
+  socket.on('update-max-temp', (newMaxTemp)=> {
+    maxTemp = newMaxTemp;
+    io.emit('update-max-temp-display', newMaxTemp);
+  });
 });
 
 // start HTTP server

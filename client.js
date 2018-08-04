@@ -70,6 +70,12 @@ socket.on('temp-humidity-in', function(temp, humidity){
   humidityReading.innerHTML = humidity + ' %';
 });
 
+//display new max temp value
+var maxTempDisplay = document.getElementById("max-temp-val");
+socket.on('update-max-temp-display', function(newMaxTemp){
+  maxTempDisplay.innerHTML = newMaxTemp;
+});
+
 //// FOR TURN BUTTON
 //handle inputs
 var startTurn = function() {
@@ -101,12 +107,9 @@ var toggleCandling = function() {
 candling.addEventListener("click", toggleCandling, false);
 
 ////MAX TEMP CONTROLL
-//var maxTempEle = document.getElementById("max-temp");
 function updateMaxTemp(newMaxTemp) {
-  console.log(newMaxTemp);
   socket.emit('update-max-temp', newMaxTemp);
 }
 
-//maxTempEle.value.addEventListener("change", updateMaxTemp(maxTempEle.value), false);
 
 

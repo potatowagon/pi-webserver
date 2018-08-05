@@ -72,8 +72,10 @@ socket.on('temp-humidity-in', function(temp, humidity){
 
 //display new max temp value
 var maxTempDisplay = document.getElementById("max-temp-val");
+var maxTempSlider = document.getElementById("max-temp");
 socket.on('update-max-temp-display', function(newMaxTemp){
   maxTempDisplay.innerHTML = newMaxTemp;
+  maxTempSlider.value = newMaxTemp;
 });
 
 //// FOR TURN BUTTON

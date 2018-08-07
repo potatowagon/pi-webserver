@@ -142,6 +142,7 @@ io.on('connection', (socket) => {
       //attempting to switch on
       sudoHeaterOff = false;
       heater.switchOn();
+      io.emit('heater-on-state');
     }
   });
 

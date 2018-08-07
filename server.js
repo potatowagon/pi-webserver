@@ -18,6 +18,7 @@ var temp = 0;
 
 //settings
 var maxTemp = 38; //initial
+var sudoHeaterOff = false;
 // in ms
 const AUTO_TURN_INTERVAL = 7200000; //2 hours
 const AUTO_TURN_DURATION = 10000;
@@ -41,8 +42,10 @@ var checkTempAdjustHeater = function(){
     io.emit('heater-off-state');
   }
   else {
-    heater.switchOn();
-    io.emit('heater-on-state');
+    if(!sudoHeaterOff) {
+      heater.switchOn();
+      io.emit('heater-on-state');
+    }
   }
 };
 
@@ -116,11 +119,13 @@ io.on('connection', (socket) => {
   socket.on('toggle-candling', () => {
     if(torch.on){
       torch.switchOff();
+      sudoHeaterOff = false;
       io.emit('candling-off-state');
       checkTempAdjustHeater();
     }
     else {
       torch.switchOn();
+      sudoHeaterOff = true;
       io.emit('candling-on-state');
       heater.switchOff();
       io.emit('heater-off-state');
@@ -130,10 +135,12 @@ io.on('connection', (socket) => {
   socket.on('toggle-heater', () => {
     if(heater.on){
       heater.switchOff();
+      sudoHeaterOff = true;
       io.emit('heater-off-state');
     }
     if(heater.off){
       //attempting to switch on
+      sudoHeaterOff = false;
       checkTempAdjustHeater();
     }
   });

@@ -8,6 +8,11 @@
     height: 150px;
 }
 
+#heater {
+    width: 150px;
+    height: 150px;
+}
+
 label {
     display: block;
 }

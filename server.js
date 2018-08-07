@@ -130,6 +130,7 @@ io.on('connection', (socket) => {
   socket.on('toggle-heater', () => {
     if(heater.on){
       heater.switchOff();
+      io.emit('heater-off-state');
     }
     if(heater.off){
       //attempting to switch on

@@ -138,7 +138,7 @@ io.on('connection', (socket) => {
       sudoHeaterOff = true;
       io.emit('heater-off-state');
     }
-    if(heater.off){
+    else {
       //attempting to switch on
       sudoHeaterOff = false;
       heater.switchOn();

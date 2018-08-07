@@ -3,15 +3,16 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-//const relay = require('./relay');
 const Motor = require('./motor');
 const Torch = require('./torch');
+const Heater = require('./heater');
 const HOST = '0.0.0.0';
 const PORT = 3000;
 
 var sockets = {};
 var motor = new Motor();
 var torch = new Torch();
+var heater = new Heater();
 var sensor = require('node-dht-sensor');
 var temp = 0;
 
@@ -19,7 +20,7 @@ var temp = 0;
 var maxTemp = 38; //initial
 // in ms
 const AUTO_TURN_INTERVAL = 7200000; //2 hours
-const AUTO_TURN_DURATION = 2000;
+const AUTO_TURN_DURATION = 10000;
 const MAX_TEMP_CHECK_INTERVAL = 5000;
 const TEMP_HUMIDITY_POLLING_INTERVAL = 5000;
 
@@ -33,15 +34,15 @@ function autoTurn() {
 //turn every once in a while (2hrs)
 setInterval(autoTurn, AUTO_TURN_INTERVAL);
 
-//check if temp above max temp, and turn off heater (turn on candling) if too hot
+//check if temp above max temp, and turn off heater if too hot
 setInterval(function(){
   if(temp > maxTemp) {
-    torch.switchOn();
-    io.emit('candling-on-state');
+    heater.switchOff();
+    io.emit('heater-off-state');
   }
   else {
-    torch.switchOff();
-    io.emit('candling-off-state');
+    heater.switchOn();
+    io.emit('heater-on-state');
   }
 }, MAX_TEMP_CHECK_INTERVAL);
 
@@ -76,16 +77,24 @@ io.on('connection', (socket) => {
     socket.emit("stop-turn-animation")
   }
 
-  if(torch.on){
+  if(torch.on) {
     socket.emit('candling-on-state');
   }
   else {
     socket.emit('candling-off-state');
   }
 
+  if(heater.on) {
+    socket.emit('heater-on-state');
+  }
+  else {
+    socket.emit('heater-off-state');
+  }
+
   //once connected, display curent max temp
   socket.emit('update-max-temp-display', maxTemp); 
 
+  //handle events from client user interaction
   socket.on('disconnect', () => {
     console.log('Client disconnected');
   });

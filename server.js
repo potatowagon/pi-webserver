@@ -141,7 +141,7 @@ io.on('connection', (socket) => {
     if(heater.off){
       //attempting to switch on
       sudoHeaterOff = false;
-      checkTempAdjustHeater();
+      heater.switchOn();
     }
   });
 

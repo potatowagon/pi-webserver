@@ -6,11 +6,11 @@ class Heater {
         this.on = true;
     }
     switchOn() {
-        this.heater.writeSync(1);
+        this.heater.writeSync(0);
         this.on = true;
     }
     switchOff() {
-        this.heater.writeSync(0);
+        this.heater.writeSync(1);
         this.on = false;
     }
 }

@@ -29,28 +29,19 @@ class Rotatable {
 // grab references to DOM elements
 var turn = document.getElementById('turn');
 var candling = document.getElementById('candling');
-var lamp = document.getElementById('lamp');
+var heater = document.getElementById('heater');
 
 var turnIcon = new Rotatable("turn-icon");
 
-//status flags
-//check gpio later
-var turning = false;
-var torchOn = false;
-var lampOn = false; 
-
 // initialize WebSocket
 var socket = io();
-var isConnected = false;
 
 // bind to socket events
 socket.on('connect', function() {
   console.log("Connected");
-  isConnected = true;
 });
 socket.on('disconnect', function() {
   console.log("Disconnect");
-  isConnected = false;
 });
 
 socket.on('start-turn-animation', function() {turnIcon.startRotate()});
@@ -60,6 +51,12 @@ socket.on('candling-on-state', function(){
 });
 socket.on('candling-off-state', function(){
   candling.innerHTML = '<i class="fas fa-lightbulb fa-7x"></i>';
+});
+socket.on('heater-on-state', function() {
+  heater.innerHTML = '<i class="fab fa-free-code-camp fa-7x"></i>';
+});
+socket.on('heater-off-state', function() {
+  heater.innerHTML = '(_)';
 });
 
 //display temp and humidity readings
@@ -100,13 +97,19 @@ turn.addEventListener("touchend", stopTurn, false);
 
 ////FOR EGG CANDLING BUTTON
 //handle inputs
-var candlingOn = false;
 var toggleCandling = function() {
   socket.emit('toggle-candling');
 };
 
 // handle mouse inputs
 candling.addEventListener("click", toggleCandling, false);
+
+////FOR HEATERBUTTON
+var toggleHeater = function() {
+  socket.emit('toggle-heater');
+};
+
+heater.addEventListener("click", toggleHeater, false);
 
 ////MAX TEMP CONTROLL
 function updateMaxTemp(newMaxTemp) {

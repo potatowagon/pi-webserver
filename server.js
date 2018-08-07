@@ -35,7 +35,7 @@ function autoTurn() {
 setInterval(autoTurn, AUTO_TURN_INTERVAL);
 
 //check if temp above max temp, and turn off heater if too hot
-setInterval(function(){
+var checkTempAdjustHeater = function(){
   if(temp > maxTemp) {
     heater.switchOff();
     io.emit('heater-off-state');
@@ -44,7 +44,9 @@ setInterval(function(){
     heater.switchOn();
     io.emit('heater-on-state');
   }
-}, MAX_TEMP_CHECK_INTERVAL);
+};
+
+setInterval(checkTempAdjustHeater, MAX_TEMP_CHECK_INTERVAL);
 
 ////Static Routes
 app.use(express.static(__dirname));
@@ -115,10 +117,23 @@ io.on('connection', (socket) => {
     if(torch.on){
       torch.switchOff();
       io.emit('candling-off-state');
+      checkTempAdjustHeater();
     }
     else {
       torch.switchOn();
       io.emit('candling-on-state');
+      heater.switchOff();
+      io.emit('heater-off-state');
+    }
+  });
+
+  socket.on('toggle-heater', () => {
+    if(heater.on){
+      heater.switchOff();
+    }
+    if(heater.off){
+      //attempting to switch on
+      checkTempAdjustHeater();
     }
   });
 

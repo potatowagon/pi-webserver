@@ -18,8 +18,8 @@ label {
 }
 
 iframe {
-    width: 640px;
-    height: 480px;
+    width: 320px;
+    height: 240px;
 }
 
 @media only screen and (max-width: 640px) {

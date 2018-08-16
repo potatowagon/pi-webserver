@@ -56,7 +56,7 @@ socket.on('heater-on-state', function() {
   heater.innerHTML = '<i class="fab fa-free-code-camp fa-7x"></i>';
 });
 socket.on('heater-off-state', function() {
-  heater.innerHTML = '(_)';
+  heater.innerHTML = '';
 });
 
 //display temp and humidity readings

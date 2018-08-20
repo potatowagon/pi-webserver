@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.css">
 </head>
 <body>
-  <iframe id="cam" src=http://chickenbox.ddns.net:8081></iframe>
   <div id="side-bar">
     <div id="chatbox">
       Leave Sherry a message
@@ -31,30 +30,32 @@
       Thankyou :)
     </div>
   </div>
-  <br>
-  <div id="temp"></div> 
-  <div id="humidity"></div>
-  <h3>Control Panel</h3>
-  <button id="turn">
-    <i id="turn-icon" class="fas fa-sync-alt fa-7x"></i>
-  </button>
-  <button id="candling">
-      <i class="fas fa-lightbulb fa-7x"></i>
-  </button>
-  <button id="heater">
-    <i class="fab fa-free-code-camp fa-7x"></i>
-  </button>
-  <br></br>
-  <label for="Max Temperature">Max Temperature</label>
-  <input type="range" id="max-temp" name="Max Temperature"
-           min="25" max="40" step="1" onchange="updateMaxTemp(this.value)"/>
-  <div id="max-temp-val"></div>
-  <h3>Meet the Incubator</h3>
-  <div id="incubator-gallery">
-    <img class="incubator-img" src="img/incubator1.jpg" alt="Inside the incubator">
-    <img class="incubator-img" src="img/incubator2.jpg" alt="Outside the incubator">
-  </div>
-
+  <div id=main>
+    <iframe id="cam" src=http://chickenbox.ddns.net:8081></iframe>
+    <br>
+    <div id="temp"></div> 
+    <div id="humidity"></div>
+    <h3>Control Panel</h3>
+    <button id="turn">
+      <i id="turn-icon" class="fas fa-sync-alt fa-7x"></i>
+    </button>
+    <button id="candling">
+        <i class="fas fa-lightbulb fa-7x"></i>
+    </button>
+    <button id="heater">
+      <i class="fab fa-free-code-camp fa-7x"></i>
+    </button>
+    <br></br>
+    <label for="Max Temperature">Max Temperature</label>
+    <input type="range" id="max-temp" name="Max Temperature"
+            min="25" max="40" step="1" onchange="updateMaxTemp(this.value)"/>
+    <div id="max-temp-val"></div>
+    <h3>Meet the Incubator</h3>
+    <div id="incubator-gallery">
+      <img class="incubator-img" src="img/incubator1.jpg" alt="Inside the incubator">
+      <img class="incubator-img" src="img/incubator2.jpg" alt="Outside the incubator">
+    </div>
+  </div>  
   <!-- The Modal -->
   <div id="myModal" class="modal">
     <span class="close">&times;</span>

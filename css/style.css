@@ -99,3 +99,7 @@ label {
 }
 
 .incubator-img:hover {opacity: 0.7;}
+
+#main {
+    z-index: 5;
+}

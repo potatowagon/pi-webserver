@@ -50,6 +50,11 @@ label {
     padding-top: 10px;
 }
 
-/*#chart {
+#chart-div {
+    position: relative;
+}
 
-}*/
+#chart {
+    width: 100%;
+    height: 100%;
+}

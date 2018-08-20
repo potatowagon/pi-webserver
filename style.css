@@ -77,8 +77,12 @@ label {
     }
 }
 
-@media only screen and (max-width: 600px) {
+#side-bar {
+    position: fixed;
+}
+
+@media only screen and (max-width: 640px) {
     #side-bar {
-        display: none;
+        position: relative;
     }
 }

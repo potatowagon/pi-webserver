@@ -30,10 +30,10 @@ label {
 }
 
 #chatbox {
-    position: absolute;
+    position: fixed;
     height: 40%;
     right: 10px;
-    bottom: 10px;
+    float: bottom;
 }
 
 #sponsors {
@@ -41,5 +41,5 @@ label {
     right: 10px;
     top: 10px;
     width: 250px;
-    height:200px;
+    height: 200px;
 }

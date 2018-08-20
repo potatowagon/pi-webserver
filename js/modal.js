@@ -9,13 +9,13 @@ var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
 
 
-for(let i = 0; i < img.length; i++) {
+/*for(let i = 0; i < img.length; i++) {
     img[i].onclick = function(){
         modal.style.display = "block";
         modalImg.src = this.src;
         captionText.innerHTML = this.alt;
     }
-}
+}*/
 
 document.getElementById('chart').onclick = function(){
     modal.style.display = "block";

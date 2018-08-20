@@ -63,8 +63,8 @@ socket.on('heater-off-state', function() {
 var tempReading = document.getElementById("temp");
 var humidityReading = document.getElementById("humidity");
 socket.on('temp-humidity-in', function(temp, humidity){
-  tempReading.innerHTML = temp + ' °C';
-  humidityReading.innerHTML = humidity + ' %';
+  tempReading.innerHTML ='Temp: ' + temp + ' °C';
+  humidityReading.innerHTML ='Humidity ' + humidity + ' %';
 });
 
 //display new max temp value

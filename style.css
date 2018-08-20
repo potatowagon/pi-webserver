@@ -43,3 +43,8 @@ label {
     width: 250px;
     height: 200px;
 }
+
+#cbox {
+    height: 80%;
+    top: 20px;
+}

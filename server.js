@@ -87,7 +87,7 @@ io.on('connection', (socket) => {
       console.log("Location of " + extIp + ": " + res);
     });
   })
-  .catch(err => {console.log(err)});
+  .catch(err => {});
  
   publicIp.v6()
   .then(ip => {
@@ -97,7 +97,7 @@ io.on('connection', (socket) => {
       console.log("Location of " + extIp + ": " + res);
     });
   })
-  .catch(err => {console.log(err)});
+  .catch(err => {});
  
 
   setInterval(function(){

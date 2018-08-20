@@ -41,7 +41,7 @@ label {
     right: 10px;
     top: 10px;
     width: 250px;
-    height: 40%;
+    max-height: 40%;
 }
 
 #cbox {

@@ -45,6 +45,7 @@ label {
 }
 
 #cbox {
+    position: relative;
     height: 80%;
-    top: 50px;
+    top: 20px;
 }

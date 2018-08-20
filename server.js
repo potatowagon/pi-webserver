@@ -15,6 +15,7 @@ var torch = new Torch();
 var heater = new Heater();
 var sensor = require('node-dht-sensor');
 var temp = 0;
+var clients = 0;
 
 //settings
 var maxTemp = 38; //initial
@@ -60,7 +61,9 @@ app.get('/', (req, res, next) => res.sendFile(__dirname + '/index.html'));
 
 // handle socket client connection
 io.on('connection', (socket) => {
-  console.log('Client connected');
+  console.log('Client ' + socket.remoteAddress + ' connected');
+  clients ++;
+  console.log("clients: " + clients);
 
   setInterval(function(){
     sensor.read(11, 4, function(err, temperature, humidity) {
@@ -101,7 +104,9 @@ io.on('connection', (socket) => {
 
   //handle events from client user interaction
   socket.on('disconnect', () => {
-    console.log('Client disconnected');
+    console.log('Client ' + socket.remoteAddress + ' disconnected');
+    clients --;
+    console.log("clients: " + clients);
   });
   
   socket.on('start-turn', () => {

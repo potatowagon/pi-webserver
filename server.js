@@ -76,7 +76,7 @@ io.on('connection', (socket) => {
   console.log("================================================================");
 
   iplocation(intIp, function (error, res) {
-    console.log("Location of " + intIp + ": " + res);
+    console.log("Location of " + intIp + ": " + res.country + " " + res.zip + ", isp: " + res.isp);
   });  
 
   publicIp.v4()

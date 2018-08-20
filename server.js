@@ -61,9 +61,12 @@ app.get('/', (req, res, next) => res.sendFile(__dirname + '/index.html'));
 
 // handle socket client connection
 io.on('connection', (socket) => {
+  console.log("================================================================");
   console.log('Client ' + socket.request.connection.remoteAddress + ' connected');
+  console.log(socket.handshake);
   clients ++;
   console.log("clients: " + clients);
+  console.log("================================================================");
 
   setInterval(function(){
     sensor.read(11, 4, function(err, temperature, humidity) {

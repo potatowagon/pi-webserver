@@ -17,14 +17,20 @@ label {
     display: block;
 }
 
-iframe {
+#cam {
     width: 320px;
     height: 240px;
 }
 
 @media only screen and (max-width: 640px) {
-    iframe {
+    #cam {
         width: 100%;
         height: 75%;
     }
+}
+
+#chatbox {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
 }

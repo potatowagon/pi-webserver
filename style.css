@@ -53,6 +53,8 @@ label {
 #chart-div {
     position: fixed;
     width: 200px;
+    right: 280px;
+    top: 10px;
 }
 
 #chart {

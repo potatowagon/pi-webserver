@@ -62,6 +62,9 @@ label {
 #contact {
     position: relative;
     float: left;
+}
+
+.fa-cog {
     color: black;
 }
 

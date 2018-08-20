@@ -22,13 +22,6 @@ label {
     height: 240px;
 }
 
-@media only screen and (max-width: 640px) {
-    #cam {
-        width: 100%;
-        height: 75%;
-    }
-}
-
 #chatbox {
     position: fixed;
     height: 40%;

@@ -2,13 +2,18 @@
 var modal = document.getElementById('myModal');
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById('chart');
+var img = [document.getElementById('chart')];
+img.push.apply(img, document.getElementsByClassName('incubator-img')); 
+
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
-img.onclick = function(){
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    captionText.innerHTML = this.alt;
+
+for(let i = 0; i < img; i++) {
+    img[i].onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+    }
 }
 
 // Get the <span> element that closes the modal

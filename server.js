@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+const publicIp = require('public-ip');
+const iplocation = require('iplocation');
 const Motor = require('./motor');
 const Torch = require('./torch');
 const Heater = require('./heater');
@@ -61,12 +63,37 @@ app.get('/', (req, res, next) => res.sendFile(__dirname + '/index.html'));
 
 // handle socket client connection
 io.on('connection', (socket) => {
+  var extIp = null;
+  var extIpLoc = null;
+  var intIp = socket.request.connection.remoteAddress;
+  var intIpLoc = null;
+
   console.log("================================================================");
-  console.log('Client ' + socket.request.connection.remoteAddress + ' connected');
+  console.log('Client ' + intIp + ' connected');
   console.log(socket.handshake);
   clients ++;
   console.log("clients: " + clients);
   console.log("================================================================");
+
+  iplocation(intIp, function (error, res) {
+    console.log("Location of " + intIp + ": " + res);
+  });  
+
+  publicIp.v4().then(ip => {
+    extIp = ip;
+    iplocation(extIp, function (error, res) {
+      console.log("External IP of " + intIp + ": " + extIp);
+      console.log("Location of " + extIp + ": " + res);
+    });  
+  });
+ 
+  publicIp.v6().then(ip => {
+    extIp = ip;
+    iplocation(extIp, function (error, res) {
+      console.log("External IP of " + intIp + ": " + extIp);
+      console.log("Location of " + extIp + ": " + res);
+    });  
+  });
 
   setInterval(function(){
     sensor.read(11, 4, function(err, temperature, humidity) {

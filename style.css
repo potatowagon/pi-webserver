@@ -64,3 +64,15 @@ label {
     width: 100%;
     height: 100%;
 }
+
+@media (orientation:portrait) {
+    #chart-div {
+        position: fixed;
+        width: 200px;
+        right: 10px;
+        top: 40%;
+        border-style: solid;
+        border-width: 5px;
+        border-color: black;
+    }
+}

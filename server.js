@@ -83,6 +83,9 @@ io.on('connection', (socket) => {
   .then(ip => {
     extIp = ip;
     iplocation(extIp, function (error, res) {
+      if(error) {
+        console.log(error);
+      }
       console.log("External IP of " + intIp + ": " + extIp);
       console.log("Location of " + extIp + ": " + res);
     });
@@ -93,6 +96,9 @@ io.on('connection', (socket) => {
   .then(ip => {
     extIp = ip;
     iplocation(extIp, function (error, res) {
+      if(error) {
+        console.log(error);
+      }
       console.log("External IP of " + intIp + ": " + extIp);
       console.log("Location of " + extIp + ": " + res);
     });

@@ -33,7 +33,7 @@ label {
     position: fixed;
     height: 40%;
     right: 10px;
-    float: bottom;
+    bottom: 10px;
 }
 
 #sponsors {

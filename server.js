@@ -61,7 +61,7 @@ app.get('/', (req, res, next) => res.sendFile(__dirname + '/index.html'));
 
 // handle socket client connection
 io.on('connection', (socket) => {
-  console.log('Client ' + socket.remoteAddress + ' connected');
+  console.log('Client ' + socket.request.connection.remoteAddress + ' connected');
   clients ++;
   console.log("clients: " + clients);
 
@@ -104,7 +104,7 @@ io.on('connection', (socket) => {
 
   //handle events from client user interaction
   socket.on('disconnect', () => {
-    console.log('Client ' + socket.remoteAddress + ' disconnected');
+    console.log('Client ' + socket.request.connection.remoteAddress + ' disconnected');
     clients --;
     console.log("clients: " + clients);
   });

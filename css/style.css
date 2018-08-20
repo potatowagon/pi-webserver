@@ -61,7 +61,7 @@ label {
 
 #contact {
     position: relative;
-    float: right;
+    float: left;
 }
 
 @media (orientation:portrait) {

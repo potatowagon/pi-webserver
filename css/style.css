@@ -87,3 +87,8 @@ label {
     width: 450px;
 }
 
+.incubator-img {
+    position: relative;
+    width: 100%
+}
+

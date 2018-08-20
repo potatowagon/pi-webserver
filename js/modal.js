@@ -2,8 +2,8 @@
 var modal = document.getElementById('myModal');
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = [document.getElementById('chart')];
-img.push.apply(img, document.getElementsByClassName('incubator-img')); 
+var img = document.getElementById('chart');
+//img.push.apply(img, document.getElementsByClassName('incubator-img')); 
 
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");

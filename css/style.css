@@ -59,6 +59,7 @@ label {
 }
 
 #contact {
+    position: fixed;
     right: 450px;
     top: 300px;
 }

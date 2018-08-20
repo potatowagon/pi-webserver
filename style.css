@@ -76,3 +76,9 @@ label {
         border-color: black;
     }
 }
+
+@media (max-width: 450px) {
+    #side-bar {
+        display: flex;
+    }
+}

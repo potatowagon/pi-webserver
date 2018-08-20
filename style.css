@@ -51,7 +51,8 @@ label {
 }
 
 #chart-div {
-    position: relative;
+    position: fixed;
+    width: 200px;
 }
 
 #chart {

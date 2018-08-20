@@ -87,7 +87,7 @@ io.on('connection', (socket) => {
         console.log(error);
       }
       console.log("External IP of " + intIp + ": " + extIp);
-      console.log("Location of " + extIp + ": " + res);
+      console.log("Location of " + extIp + ": " + res.country + " " + res.zip + ", isp: " + res.isp);
     });
   })
   .catch(err => {});
@@ -100,7 +100,7 @@ io.on('connection', (socket) => {
         console.log(error);
       }
       console.log("External IP of " + intIp + ": " + extIp);
-      console.log("Location of " + extIp + ": " + res);
+      console.log("Location of " + extIp + ": " + res.country + " " + res.zip + ", isp: " + res.isp);
     });
   })
   .catch(err => {});

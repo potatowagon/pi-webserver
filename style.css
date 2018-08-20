@@ -31,7 +31,7 @@ label {
 
 #chatbox {
     position: fixed;
-    height: 40%;
+    height: 50%;
     right: 10px;
     bottom: 10px;
 }
@@ -47,5 +47,5 @@ label {
 #cbox {
     position: relative;
     height: 80%;
-    padding-top: 25px;
+    padding-top: 10px;
 }

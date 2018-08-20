@@ -5,9 +5,9 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const publicIp = require('public-ip');
 const iplocation = require('iplocation');
-const Motor = require('./motor');
-const Torch = require('./torch');
-const Heater = require('./heater');
+const Motor = require('./src/motor');
+const Torch = require('./src/torch');
+const Heater = require('./src/heater');
 const HOST = '0.0.0.0';
 const PORT = 3000;
 

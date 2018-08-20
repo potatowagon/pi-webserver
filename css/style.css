@@ -58,6 +58,11 @@ label {
     height: 100%;
 }
 
+#contact {
+    right: 450px;
+    top: 300px;
+}
+
 @media (orientation:portrait) {
     #chart-div {
         position: fixed;
@@ -79,3 +84,4 @@ label {
         display: none;
     }
 }
+

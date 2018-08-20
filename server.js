@@ -79,21 +79,26 @@ io.on('connection', (socket) => {
     console.log("Location of " + intIp + ": " + res);
   });  
 
-  publicIp.v4().then(ip => {
+  publicIp.v4()
+  .then(ip => {
     extIp = ip;
     iplocation(extIp, function (error, res) {
       console.log("External IP of " + intIp + ": " + extIp);
       console.log("Location of " + extIp + ": " + res);
-    });  
-  });
+    });
+  })
+  .catch(err => {console.log(err)});
  
-  publicIp.v6().then(ip => {
+  publicIp.v6()
+  .then(ip => {
     extIp = ip;
     iplocation(extIp, function (error, res) {
       console.log("External IP of " + intIp + ": " + extIp);
       console.log("Location of " + extIp + ": " + res);
-    });  
-  });
+    });
+  })
+  .catch(err => {console.log(err)});
+ 
 
   setInterval(function(){
     sensor.read(11, 4, function(err, temperature, humidity) {

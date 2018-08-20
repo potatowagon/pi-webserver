@@ -68,6 +68,10 @@ label {
     color: black;
 }
 
+.fa {
+    color : black;
+  }
+
 @media (orientation:portrait) {
     #chart-div {
         position: fixed;

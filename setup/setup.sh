@@ -11,7 +11,7 @@ sudo apt-get install motion
 
 #set motion configs
 sudo yes | cp -rf ./motion.conf /etc/motion/motion.conf
-sudo yes | cp -rf motion /etc/default/motion 
+sudo yes | cp -rf ./motion /etc/default/motion 
 
 # install node js
 sudo wget -O - https://raw.githubusercontent.com/audstanley/NodeJs-Raspberry-Pi/master/Install-Node.sh | bash;

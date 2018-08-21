@@ -1,6 +1,0 @@
-sudo npm <module-name> --unsafe-perm
-
-express
-http
-socket.io
-onoff

@@ -12,11 +12,18 @@ For Remote Surveilence Chicken Egg Incubator
 After flashing the raspbian image on your pi, paste the following in your terminal.
 
 ```
-cd
+cd 
 sudo git clone https://github.com/potatowagon/pi-webserver.git
 cd ./pi-webserver/setup
 ./setup.sh
 ```
 
 This will set up the webcam, install node js and download the dependencies.
+
+#### To run
+
+```
+cd ~/pi-webserver/
+sudo node server.js
+```
 

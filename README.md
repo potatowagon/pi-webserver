@@ -5,7 +5,7 @@ pi-webserver to control relay switches and to stream real-time video feed from a
 
 For Remote Surveilence Chicken Egg Incubator
 
-![alt text](https://github.com/potatowagon/pi-webserver/blob/master/img/readme1.jpg =480x)
+![alt text](https://github.com/potatowagon/pi-webserver/blob/master/img/readme1.jpg =480x640)
 
 ### For developers
 

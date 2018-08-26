@@ -111,3 +111,9 @@ label {
 #main {
     z-index: 5;
 }
+
+#day {
+    position: absolute;
+    left: 340px;
+    width: 110px
+}

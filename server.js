@@ -178,7 +178,14 @@ io.on('connection', (socket) => {
       io.emit('candling-on-state');
       heater.switchOff();
       io.emit('heater-off-state');
-      setTimeout(function() {io.emit("toggle-candling")}, TORCH_ON_DURATION);
+      setTimeout(function() {
+        if(torch.on){
+          torch.switchOff();
+          sudoHeaterOff = false;
+          io.emit('candling-off-state');
+          checkTempAdjustHeater();
+        }
+      }, TORCH_ON_DURATION);
     }
   });
 

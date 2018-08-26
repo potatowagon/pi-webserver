@@ -112,7 +112,7 @@ label {
     z-index: 5;
 }
 
-#day {
+#info-div {
     position: absolute;
     left: 340px;
     width: 110px

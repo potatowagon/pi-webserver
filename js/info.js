@@ -1,4 +1,4 @@
-document.getElementById("day").innerHTML = "Day " + daysSince(new Date(2018,08,19)); 
+document.getElementById("day").innerHTML = "Day " + daysSince(new Date(2018,07,20)); 
 
 
 //day count 

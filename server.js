@@ -27,6 +27,8 @@ const AUTO_TURN_INTERVAL = 7200000; //2 hours
 const AUTO_TURN_DURATION = 10000;
 const MAX_TEMP_CHECK_INTERVAL = 5000;
 const TEMP_HUMIDITY_POLLING_INTERVAL = 5000;
+const SUDO_HEATER_OFF_DURATION = 60000; //ein minuten
+const TORCH_ON_DURATION = 60000; 
 
 
 function autoTurn() {
@@ -172,9 +174,11 @@ io.on('connection', (socket) => {
     else {
       torch.switchOn();
       sudoHeaterOff = true;
+      setTimeout(function() {sudoHeaterOff = false}, SUDO_HEATER_OFF_DURATION);
       io.emit('candling-on-state');
       heater.switchOff();
       io.emit('heater-off-state');
+      setTimeout(function() {io.emit("toggle-candling")}, TORCH_ON_DURATION);
     }
   });
 
@@ -182,6 +186,7 @@ io.on('connection', (socket) => {
     if(heater.on){
       heater.switchOff();
       sudoHeaterOff = true;
+      setTimeout(function() {sudoHeaterOff = false}, SUDO_HEATER_OFF_DURATION);
       io.emit('heater-off-state');
     }
     else {

@@ -1,6 +1,9 @@
 // Get the modal
 var modal = document.getElementById('myModal');
 
+//hide info modal
+document.getElementById("info-modal").style.display = "none";
+
 // Get the image and insert it inside the modal - use its "alt" text as a caption
 var img = [document.getElementById('chart')]; 
 img.push.apply(img, document.getElementsByClassName('incubator-img')); 

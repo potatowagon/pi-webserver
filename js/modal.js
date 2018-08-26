@@ -11,7 +11,7 @@ var captionText = document.getElementById("caption");
 for(let i = 0; i < img.length; i++) {
     img[i].onclick = function(){
         //hide info modal
-        document.getElementById("info-modal").style.display = "none";
+        //document.getElementById("info-modal").style.display = "none";
         modal.style.display = "block";
         modalImg.src = this.src;
         captionText.innerHTML = this.alt;

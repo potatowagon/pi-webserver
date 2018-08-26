@@ -1,7 +1,4 @@
-setInterval(function () {
-    document.getElementById("day").innerHTML = "Day " + daysSince(new Date(2018,07,20));
-}, 21600000);  
-
+document.getElementById("day").innerHTML = "Day " + daysSince(new Date(2018,07,20));
 
 //day count 
 function daysSince(startDate) {

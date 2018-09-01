@@ -12,6 +12,7 @@ for(let i = 0; i < img.length; i++) {
     img[i].onclick = function(){
         //hide info modal
         document.getElementById("info-modal").style.display = "none";
+        modal.style.paddingTop = "100px";
         modal.style.display = "block";
         modalImg.src = this.src;
         captionText.innerHTML = this.alt;

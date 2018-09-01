@@ -124,6 +124,9 @@ label {
 
 #info-block {
     display: none;
+    width: 320px;
+    height: 255px;
+    overflow: auto;
 }
 
 #help {

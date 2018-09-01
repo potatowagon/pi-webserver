@@ -7,4 +7,18 @@ function daysSince(startDate) {
     return diffDays = Math.round(Math.abs((today.getTime() - startDate.getTime())/(oneDay)));
 }
 
-//document.getElementById("help").
+
+var helpShown = false;
+var infoBlock = document.getElementById("info-block");
+document.getElementById("help").onclick = function() {
+    if (helpShown) {
+        //hide info block
+        infoBlock.style.display = "none";
+        helpShown = false;
+    }
+    else {
+        //show info block
+        infoBlock.style.display = "block";
+        helpShown = true;
+    }
+}

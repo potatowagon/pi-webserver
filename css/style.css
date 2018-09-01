@@ -135,6 +135,7 @@ label {
 
 #temp-info {
     color: red;
+    padding-left: 10px;
 }
 
 .inline {

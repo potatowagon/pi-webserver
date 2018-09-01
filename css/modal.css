@@ -93,5 +93,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
     text-align: center;
     color: white;
     margin: 0px;
-    padding: 0px;
+}
+
+#myModal {
+    padding-top: 50px;
 }

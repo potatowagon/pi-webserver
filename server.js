@@ -45,11 +45,13 @@ var checkTempAdjustHeater = function(){
   if(temp > maxTemp) {
     heater.switchOff();
     io.emit('heater-off-state');
+    io.emit('maxTemp>temp')
   }
   else {
     if(!sudoHeaterOff) {
       heater.switchOn();
       io.emit('heater-on-state');
+      io.emit('maxTemp<=temp')
     }
   }
 };

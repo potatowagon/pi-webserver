@@ -119,7 +119,8 @@ label {
 #info-div {
     position: absolute;
     left: 340px;
-    width: 310px
+    width: 310px;
+    display: none;
 }
 
 #help {

@@ -120,6 +120,9 @@ label {
     position: absolute;
     left: 340px;
     width: 310px;
+}
+
+#info-block {
     display: none;
 }
 

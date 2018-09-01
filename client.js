@@ -78,7 +78,7 @@ socket.on('update-max-temp-display', function(newMaxTemp){
 //display that maxTemp > temp, or not
 var tempInfo = document.getElementById("temp-info");
 socket.on('maxTemp>temp', function(){
-  tempInfo.innerHTML = " > Max Temp! Heater turned off";
+  tempInfo.innerHTML = "  > Max Temp! Heater turned off";
 });
 socket.on('maxTemp<=temp', function(){
   tempInfo.innerHTML = "";

@@ -135,6 +135,9 @@ label {
 
 #temp-info {
     color: red;
+}
+
+.inline {
     display: inline-block;
 }
 

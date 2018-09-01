@@ -7,4 +7,4 @@ function daysSince(startDate) {
     return diffDays = Math.round(Math.abs((today.getTime() - startDate.getTime())/(oneDay)));
 }
 
-  
+//document.getElementById("help").

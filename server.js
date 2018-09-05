@@ -24,7 +24,7 @@ var countdown = 0;
 var maxTemp = 38; //initial
 var sudoHeaterOff = false;
 // in ms
-const AUTO_TURN_INTERVAL = 20000//10800000; //3 hours
+const AUTO_TURN_INTERVAL = 10800000; //3 hours
 const AUTO_TURN_DURATION = 3000;
 const MAX_TEMP_CHECK_INTERVAL = 5000;
 const TEMP_HUMIDITY_POLLING_INTERVAL = 5000;
@@ -47,7 +47,6 @@ function autoTurnCountdown() {
     if(countdown <= 0) {
       clearInterval(secondCountInterval);
     }
-    console.log(countdownDisplay);
   }, 1000);
 }
 

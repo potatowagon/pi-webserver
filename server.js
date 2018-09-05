@@ -30,11 +30,24 @@ const TEMP_HUMIDITY_POLLING_INTERVAL = 5000;
 const SUDO_HEATER_OFF_DURATION = 60000; //ein minuten
 const TORCH_ON_DURATION = 60000; 
 
-
 function autoTurn() {
   console.log("auto starting motor");
   motor.startTurn();
   setTimeout(function() {motor.stopTurn()}, AUTO_TURN_DURATION);
+  autoTurnCountdown();
+}
+
+function autoTurnCountdown() {
+  var countdown = AUTO_TURN_INTERVAL
+  var secondCountInterval = setInterval(function() {
+    countdown = countdown - 1000;
+    var countdownDisplay = secondsToHms(countdown/1000);
+    io.emit('auto-turn-countdown', countdownDisplay);
+    if(countdown <= 0) {
+      clearInterval(secondCountInterval);
+    }
+    console.log(countdownDisplay);
+  }, 1000);
 }
 
 //turn every once in a while (2hrs)
@@ -109,7 +122,7 @@ io.on('connection', (socket) => {
   })
   .catch(err => {});
  
-
+  //send temp & humidity readings to client at intervals
   setInterval(function(){
     sensor.read(11, 4, function(err, temperature, humidity) {
       if (!err) {
@@ -118,6 +131,9 @@ io.on('connection', (socket) => {
       }
     });  
   }, TEMP_HUMIDITY_POLLING_INTERVAL);
+
+  //send client countdown to next autoturn
+
 
   //once connected, display current max temp
   socket.emit("max-temp", maxTemp);
@@ -145,7 +161,7 @@ io.on('connection', (socket) => {
   }
 
   //once connected, display curent max temp
-  socket.emit('update-max-temp-display', maxTemp); 
+  socket.emit('update-max-temp-display', maxTemp);
 
   //handle events from client user interaction
   socket.on('disconnect', () => {
@@ -217,3 +233,14 @@ http.listen(PORT, HOST, () => {
   console.log(`Server listening at http://${HOST}:${PORT}`);
 });
 
+function secondsToHms(d) {
+  d = Number(d);
+  var h = Math.floor(d / 3600);
+  var m = Math.floor(d % 3600 / 60);
+  var s = Math.floor(d % 3600 % 60);
+
+  var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
+  var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
+  var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+  return hDisplay + mDisplay + sDisplay; 
+}

@@ -67,6 +67,12 @@ socket.on('temp-humidity-in', function(temp, humidity){
   humidityReading.innerHTML ='Humidity:   ' + humidity + ' %';
 });
 
+//display next time to next autoturn
+var autoturnCountdown = document.getElementById("autoturn-countdown");
+socket.on('auto-turn-countdown', function(countdownTime){
+  autoturnCountdown.innerHTML = "Time to next auto-turn: " + countdownTime;
+});
+
 //display new max temp value
 var maxTempDisplay = document.getElementById("max-temp-val");
 var maxTempSlider = document.getElementById("max-temp");

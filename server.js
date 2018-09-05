@@ -18,6 +18,7 @@ var heater = new Heater();
 var sensor = require('node-dht-sensor');
 var temp = 0;
 var clients = 0;
+var countdown = 0;
 
 //settings
 var maxTemp = 38; //initial
@@ -38,7 +39,7 @@ function autoTurn() {
 }
 
 function autoTurnCountdown() {
-  var countdown = AUTO_TURN_INTERVAL
+  countdown = AUTO_TURN_INTERVAL;
   var secondCountInterval = setInterval(function() {
     countdown = countdown - 1000;
     var countdownDisplay = secondsToHms(countdown/1000);
@@ -133,7 +134,8 @@ io.on('connection', (socket) => {
   }, TEMP_HUMIDITY_POLLING_INTERVAL);
 
   //send client countdown to next autoturn
-
+  var countdownDisplay = secondsToHms(countdown/1000);
+  socket.emit('auto-turn-countdown', countdownDisplay);
 
   //once connected, display current max temp
   socket.emit("max-temp", maxTemp);

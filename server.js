@@ -29,7 +29,8 @@ const AUTO_TURN_DURATION = 3000;
 const MAX_TEMP_CHECK_INTERVAL = 5000;
 const TEMP_HUMIDITY_POLLING_INTERVAL = 5000;
 const SUDO_HEATER_OFF_DURATION = 60000; //ein minuten
-const TORCH_ON_DURATION = 60000; 
+const TORCH_ON_DURATION = 60000;
+const AUTOTURN_COUNTDOWN_INTERVAL = 60000 
 
 function autoTurn() {
   console.log("auto starting motor");
@@ -41,13 +42,13 @@ function autoTurn() {
 function autoTurnCountdown() {
   countdown = AUTO_TURN_INTERVAL;
   var secondCountInterval = setInterval(function() {
-    countdown = countdown - 1000;
+    countdown = countdown - AUTOTURN_COUNTDOWN_INTERVAL;
     var countdownDisplay = secondsToHms(countdown/1000);
     io.emit('auto-turn-countdown', countdownDisplay);
     if(countdown <= 0) {
       clearInterval(secondCountInterval);
     }
-  }, 1000);
+  }, AUTOTURN_COUNTDOWN_INTERVAL);
 }
 
 //turn every once in a while (2hrs)

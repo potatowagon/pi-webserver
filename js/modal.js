@@ -14,7 +14,6 @@ for(let i = 0; i < img.length; i++) {
         document.getElementById("info-modal").style.display = "none";
         modal.style.paddingTop = "100px";
         modal.style.display = "block";
-        modal.style.zIndex = 10;
         modalImg.src = this.src;
         captionText.innerHTML = this.alt;
     }

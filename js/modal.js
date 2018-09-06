@@ -14,6 +14,7 @@ for(let i = 0; i < img.length; i++) {
         document.getElementById("info-modal").style.display = "none";
         modal.style.paddingTop = "100px";
         modal.style.display = "block";
+        modal.style.zIndex = 10;
         modalImg.src = this.src;
         captionText.innerHTML = this.alt;
     }
@@ -24,5 +25,11 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() { 
+    modal.style.display = "none";
+}
+
+//close on clicking the modal background
+var background = document.getElementById("info-modal");
+background.onclick = function() {
     modal.style.display = "none";
 }

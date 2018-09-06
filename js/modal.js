@@ -29,7 +29,9 @@ span.onclick = function() {
 }
 
 //close on clicking the modal background
-var background = document.getElementById("info-modal");
-background.onclick = function() {
-    modal.style.display = "none";
+var background = [document.getElementById("info-modal"), document,getElementById("myModal")];
+for(let i =0; i < background.length; i++) {
+    background.onclick = function() {
+        modal.style.display = "none";
+    }
 }

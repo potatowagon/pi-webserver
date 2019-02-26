@@ -16,6 +16,11 @@ var motor = new Motor();
 var torch = new Torch();
 var heater = new Heater();
 var sensor = require('node-dht-sensor');
+const DHT11 = 11;
+const DHT11_1_GPIO = 4;
+const DHT11_2_GPIO = 4;
+
+
 var temp = 0;
 var clients = 0;
 var countdown = 0;
@@ -125,7 +130,7 @@ io.on('connection', (socket) => {
  
   //send temp & humidity readings to client at intervals
   setInterval(function(){
-    sensor.read(11, 4, function(err, temperature, humidity) {
+    sensor.read(DHT11, DHT11_1_GPIO, function(err, temperature, humidity) {
       if (!err) {
         temp = temperature;
         io.emit('temp-humidity-in', temperature.toFixed(0), humidity.toFixed(0));

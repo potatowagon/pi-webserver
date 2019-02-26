@@ -27,3 +27,10 @@ cd ~/pi-webserver/
 sudo node server.js
 ```
 
+### The Product
+<img src="https://github.com/potatowagon/pi-webserver/blob/master/img/incubator1.jpg" width="300">
+<img src="https://github.com/potatowagon/pi-webserver/blob/master/img/incubator2.jpg" width="300">
+</br>
+Unfortunately the chick didnt make it :(
+<img src="https://github.com/potatowagon/pi-webserver/blob/master/img/chick.jpg" width="300">
+
